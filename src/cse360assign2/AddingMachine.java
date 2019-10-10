@@ -28,11 +28,19 @@ public class AddingMachine {
 	private int total;
 	
 	/**
+	 * Private instance variable for the complete history of
+	 * operations performed on the total
+	 */
+	private String operationHistory;
+	
+	/**
 	 * Default constructor to create an AddingMachine object with
-	 * its total initialized to 0.
+	 * its total initialized to 0 and operationHistory initialized
+	 * to "0"
 	 */
 	public AddingMachine () {
-		total = 0;  // not needed - included for clarity
+		this.total = 0;
+		this.operationHistory = "0";
 	}
 	
 	/**
@@ -41,42 +49,48 @@ public class AddingMachine {
 	 * @return the current int value of the total
 	 */
 	public int getTotal () {
-		return 0;
+		return total;
 	}
 	
 	/**
-	 * Method to add an int value to the total.
+	 * Method to add an int value to the total and then
+	 * update operationHistory.
 	 * 
 	 * @param value the int value to be added to the total
 	 */
 	public void add (int value) {
-		
+		total = total + value;
+		operationHistory = operationHistory + " + " + value;
 	}
 	
 	/**
-	 * Method to subtract an int value from the total
+	 * Method to subtract an int value from the total and then
+	 * update operationHistory.
 	 * 
 	 * @param value the int value to be subtracted from the total
 	 */
 	public void subtract (int value) {
-		
+		total = total - value;
+		operationHistory = operationHistory + " - " + value;
 	}
 	
 	/**
 	 * Method to return a String representation of the object in the form
-	 * of a complete history of operations performed on the total.
+	 * of a complete history of operations ({@link #operationHistory})
+	 * performed on the total.
 	 * 
 	 * @return String representation of the object
 	 */
 	public String toString () {
-		return "";
+		return operationHistory;
 	}
 
 	/**
 	 * Method to clear the object by resetting the total to 0
-	 * and clearing the history of operations.
+	 * and clearing the history of operations to "0".
 	 */
 	public void clear() {
-	
+		total = 0;
+		operationHistory = "0";
 	}
 }
